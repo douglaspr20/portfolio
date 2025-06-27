@@ -1,16 +1,25 @@
 ---
+import Layout from "@/layouts/Layout.astro";
+import ExperienceSection from "@/components/sections/ExperienceSection";
+import Skills from "@/components/sections/Skills";
+import Contact from "@/components/sections/Contact";
+import HeroSection from "@/components/sections/HeroSection";
+import Projects from "@/components/sections/Projects";
+import Education from "@/components/sections/Education";
+
 
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Douglas Pérez - Portfolio">
+  <HeroSection client:only="react" />
+  <ExperienceSection client:only="react">
+    <div slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
+  </ExperienceSection>
+   <Skills client:visible />
+ <Projects client:only="react">
+    <div id="projects" slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
+  </Projects>
+  <Education client:visible>
+    <div slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
+  </Education>
+  <Contact client:visible/>
+</Layout>
