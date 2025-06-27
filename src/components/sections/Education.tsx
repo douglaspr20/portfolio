@@ -12,6 +12,7 @@ import {
 } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { TypingAnimation } from "../typing-animation";
+import SectionContainer from "../SectionContainer";
 
 const Education = () => {
   const [activeTab, setActiveTab] = useState("education");
@@ -19,184 +20,179 @@ const Education = () => {
   const titles = [
     "Professional Journey",
     "Education background",
-    "Profesional certifications",
+    "Certifications",
     "Achievements",
   ];
 
   return (
-    <section
-      id="education"
-      className="from-muted/20 to-background relative mt-10 bg-gradient-to-b py-12"
-    >
-      <div className="mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <h2 className="mb-3 text-4xl font-bold text-white md:text-4xl">
-            <TypingAnimation
-              texts={titles}
-              className="bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent"
-            />
-          </h2>
-        </motion.div>
+    <SectionContainer id="education">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="mb-12"
+      >
+        <h2 className="mb-3 text-4xl font-bold text-white md:text-4xl">
+          <TypingAnimation
+            texts={titles}
+            className="bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent"
+          />
+        </h2>
+      </motion.div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="mb-8 grid w-full grid-cols-2 rounded-xl border-2 border-transparent bg-white p-0 shadow-lg dark:border-slate-800 dark:bg-gray-900/50">
-            <TabsTrigger
-              value="education"
-              className="flex h-[100%] items-center gap-2 rounded-lg transition-all duration-300 data-[state=active]:bg-blue-700 data-[state=active]:text-white dark:text-white"
-            >
-              <GraduationCap className="h-4 w-4" />
-              Education
-            </TabsTrigger>
-            <TabsTrigger
-              value="certifications"
-              className="flex h-[100%] items-center gap-2 rounded-lg transition-all duration-300 data-[state=active]:bg-yellow-500 data-[state=active]:text-white dark:text-white"
-            >
-              <Award className="h-4 w-4" />
-              Certifications
-            </TabsTrigger>
-          </TabsList>
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <TabsList className="mb-8 grid w-full grid-cols-2 rounded-xl border-2 border-transparent bg-white p-0 shadow-lg dark:border-slate-800 dark:bg-gray-900/50">
+          <TabsTrigger
+            value="education"
+            className="flex h-[100%] items-center gap-2 rounded-lg transition-all duration-300 data-[state=active]:bg-blue-700 data-[state=active]:text-white dark:text-white"
+          >
+            <GraduationCap className="h-4 w-4" />
+            Education
+          </TabsTrigger>
+          <TabsTrigger
+            value="certifications"
+            className="flex h-[100%] items-center gap-2 rounded-lg transition-all duration-300 data-[state=active]:bg-yellow-500 data-[state=active]:text-white dark:text-white"
+          >
+            <Award className="h-4 w-4" />
+            Certifications
+          </TabsTrigger>
+        </TabsList>
 
-          <AnimatePresence mode="wait">
-            <TabsContent value="education" className="mt-0">
-              <motion.div
-                key="education"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4 }}
-                className="space-y-6"
-              >
-                {education.degree.map((item, index) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.2 }}
-                  >
-                    <Card className="overflow-hidden border-l-4 border-l-blue-600 transition-all duration-300 hover:shadow-xl">
-                      <CardHeader className="bg-gradient-to-r from-blue-50 to-sky-50 dark:from-slate-950 dark:to-slate-800">
-                        <div className="flex items-start justify-between">
-                          <div>
-                            <CardTitle className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
-                              {item.title}
-                            </CardTitle>
-                            <CardDescription className="text-lg font-semibold text-sky-500">
-                              {item.institution}
-                            </CardDescription>
-                          </div>
-                          <div className="text-right">
-                            <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-300">
-                              <Calendar className="h-4 w-4" />
-                              {item.period}
-                            </div>
+        <AnimatePresence mode="wait">
+          <TabsContent value="education" className="mt-0">
+            <motion.div
+              key="education"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4 }}
+              className="space-y-6"
+            >
+              {education.degree.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  <Card className="overflow-hidden border-l-4 border-l-blue-600 transition-all duration-300 hover:shadow-xl">
+                    <CardHeader className="bg-gradient-to-r from-blue-50 to-sky-50 dark:from-slate-950 dark:to-slate-800">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <CardTitle className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
+                            {item.title}
+                          </CardTitle>
+                          <CardDescription className="text-lg font-semibold text-sky-500">
+                            {item.institution}
+                          </CardDescription>
+                        </div>
+                        <div className="text-right">
+                          <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-300">
+                            <Calendar className="h-4 w-4" />
+                            {item.period}
                           </div>
                         </div>
-                        <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
-                          <MapPin className="h-4 w-4" />
-                          {item.location}
-                        </div>
-                      </CardHeader>
-                      <CardContent className="pt-6">
-                        <p className="mb-4 text-gray-700 dark:text-white">
-                          {item.description}
-                        </p>
+                      </div>
+                      <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
+                        <MapPin className="h-4 w-4" />
+                        {item.location}
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      <p className="mb-4 text-gray-700 dark:text-white">
+                        {item.description}
+                      </p>
 
-                        <div className="mb-4">
-                          <h4 className="mb-2 font-semibold text-gray-900">
-                            Key Highlights:
-                          </h4>
-                          <ul className="list-inside list-disc space-y-1">
-                            {item.highlights.map((highlight, idx) => (
-                              <li
-                                key={idx}
-                                className="text-sm text-gray-700 dark:text-white"
-                              >
-                                {highlight}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="flex flex-wrap gap-2">
-                          {item.skills.map((skill, skillIndex) => (
-                            <Badge
-                              key={skillIndex}
-                              variant="secondary"
-                              className="bg-blue-100 text-sky-800 dark:bg-blue-900 dark:text-white"
+                      <div className="mb-4">
+                        <h4 className="mb-2 font-semibold text-gray-900">
+                          Key Highlights:
+                        </h4>
+                        <ul className="list-inside list-disc space-y-1">
+                          {item.highlights.map((highlight, idx) => (
+                            <li
+                              key={idx}
+                              className="text-sm text-gray-700 dark:text-white"
                             >
-                              {skill}
-                            </Badge>
+                              {highlight}
+                            </li>
                           ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </TabsContent>
+                        </ul>
+                      </div>
 
-            <TabsContent value="certifications" className="mt-0">
-              <motion.div
-                key="certifications"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4 }}
-                className="grid grid-cols-1 gap-6 md:grid-cols-2"
-              >
-                {education.certifications.map((cert, index) => (
-                  <motion.div
-                    key={cert.id}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <Card className="h-full overflow-hidden border-l-4 border-l-yellow-500 transition-all duration-300 hover:shadow-xl">
-                      <CardHeader className="bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-slate-950 dark:to-slate-800">
-                        <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">
-                          {cert.title}
-                        </CardTitle>
-                        <CardDescription className="text-lg font-semibold text-yellow-700 dark:text-yellow-400">
-                          {cert.issuer}
-                        </CardDescription>
-                        <div className="mt-2 flex items-center justify-between">
-                          <Badge variant="outline">{cert.date}</Badge>
-                          <span className="text-xs text-gray-500 dark:text-gray-300">
-                            ID: {cert.credentialId}
-                          </span>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="pt-4">
-                        <p className="mb-4 text-sm text-gray-700 dark:text-white">
-                          {cert.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {cert.skills.map((skill, skillIndex) => (
-                            <Badge
-                              key={skillIndex}
-                              variant="secondary"
-                              className="bg-yellow-100 text-xs text-yellow-800"
-                            >
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </TabsContent>
-          </AnimatePresence>
-        </Tabs>
-      </div>
-    </section>
+                      <div className="flex flex-wrap gap-2">
+                        {item.skills.map((skill, skillIndex) => (
+                          <Badge
+                            key={skillIndex}
+                            variant="secondary"
+                            className="bg-blue-100 text-sky-800 dark:bg-blue-900 dark:text-white"
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </TabsContent>
+
+          <TabsContent value="certifications" className="mt-0">
+            <motion.div
+              key="certifications"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4 }}
+              className="grid grid-cols-1 gap-6 md:grid-cols-2"
+            >
+              {education.certifications.map((cert, index) => (
+                <motion.div
+                  key={cert.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <Card className="h-full overflow-hidden border-l-4 border-l-yellow-500 transition-all duration-300 hover:shadow-xl">
+                    <CardHeader className="bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-slate-950 dark:to-slate-800">
+                      <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">
+                        {cert.title}
+                      </CardTitle>
+                      <CardDescription className="text-lg font-semibold text-yellow-700 dark:text-yellow-400">
+                        {cert.issuer}
+                      </CardDescription>
+                      <div className="mt-2 flex items-center justify-between">
+                        <Badge variant="outline">{cert.date}</Badge>
+                        <span className="text-xs text-gray-500 dark:text-gray-300">
+                          ID: {cert.credentialId}
+                        </span>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-4">
+                      <p className="mb-4 text-sm text-gray-700 dark:text-white">
+                        {cert.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {cert.skills.map((skill, skillIndex) => (
+                          <Badge
+                            key={skillIndex}
+                            variant="secondary"
+                            className="bg-yellow-100 text-xs text-yellow-800"
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </TabsContent>
+        </AnimatePresence>
+      </Tabs>
+    </SectionContainer>
   );
 };
 

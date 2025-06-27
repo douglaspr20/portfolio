@@ -21,7 +21,7 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
   }, [index]);
 
   const cardStyles = {
-    scale: isCenter ? "scale-105" : "scale-95",
+    scale: isCenter ? "scale-95 lg:scale-105" : "scale-95",
     elevation: isCenter ? "-translate-y-4" : "translate-y-0",
     shadow: isCenter
       ? "shadow-lg shadow-slate-700"

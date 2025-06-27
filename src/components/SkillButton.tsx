@@ -11,12 +11,14 @@ interface Props {
   selectedSkillId: string;
   handleSkillChange: (skill: Skill) => void;
   particleTrigger?: boolean;
+  containerRef?: React.RefObject<HTMLDivElement | null>;
 }
 const SkillButton: FC<Props> = ({
   skill,
   selectedSkillId,
   handleSkillChange,
   particleTrigger = false,
+  containerRef,
 }) => {
   const IconComponent = skill.icon;
   const isSelected = selectedSkillId === skill.id;
@@ -27,7 +29,12 @@ const SkillButton: FC<Props> = ({
   return (
     <motion.button
       key={skill.id}
-      onClick={() => handleSkillChange(skill)}
+      onClick={() => {
+        if (containerRef?.current) {
+          containerRef.current?.scrollIntoView({ behavior: "smooth" });
+        }
+        handleSkillChange(skill);
+      }}
       className="group relative overflow-hidden rounded-xl border-2 bg-white/80 p-6 shadow-lg backdrop-blur-sm transition-all duration-200 hover:shadow-xl dark:bg-gray-900/50"
       whileHover={{
         scale: 1.05,
@@ -50,7 +57,6 @@ const SkillButton: FC<Props> = ({
           : undefined,
       }}
     >
-      {/* Efecto de brillo en hover */}
       <motion.div
         className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
         whileHover={{
@@ -59,13 +65,11 @@ const SkillButton: FC<Props> = ({
         }}
       />
 
-      {/* Partículas */}
       <Particles
         color={skill.color}
         trigger={particleTrigger && isSelected}
         count={30}
       />
-      {/* Partículas secundarias más sutiles */}
       {isSelected && (
         <motion.div
           className="pointer-events-none absolute inset-0"

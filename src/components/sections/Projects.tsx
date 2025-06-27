@@ -5,6 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { projects } from "@/lib/data";
 import { useCallback, useEffect, useState } from "react";
 import ProjectCard from "../ProjectCard";
+import SectionContainer from "../SectionContainer";
 
 const Projects = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -43,87 +44,80 @@ const Projects = () => {
   }, [emblaApi, updateSelectedIndex]);
 
   return (
-    <section
-      id="projects"
-      className='className="from-muted/20 to-background relative bg-gradient-to-b py-12'
-    >
-      <div className="mx-auto max-w-7xl">
-        <h2 className="mb-6 text-4xl font-bold text-white md:text-4xl">
-          <TypingAnimation
-            texts={["Projects", "Works", "Successes"]}
-            className="bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent"
-          />
-        </h2>
+    <SectionContainer id="projects">
+      <h2 className="mb-6 text-4xl font-bold text-white md:text-4xl">
+        <TypingAnimation
+          texts={["Projects", "Works", "Successes"]}
+          className="bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent"
+        />
+      </h2>
 
-        <div className="relative px-8 py-16">
-          {/* Carousel container */}
-
-          <div
-            className="relative mx-auto h-[500px] w-full max-w-6xl overflow-hidden py-16"
-            ref={emblaRef}
-          >
-            <div className="-ml-2 flex md:-ml-4">
-              {projects.map((project, index) => (
-                <div className="min-w-0 shrink-0 grow-0 basis-full pl-2 md:basis-1/2 md:pl-4 lg:basis-1/3">
-                  <ProjectCard
-                    project={project}
-                    isCenter={current === index}
-                    index={index}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <Button
-            className="absolute top-1/3 -left-4 translate-y-2/3 cursor-pointer border-0 bg-transparent text-yellow-400 shadow-none transition-all duration-200 hover:bg-transparent hover:text-yellow-600"
-            onClick={scrollPrev}
-          >
-            <ChevronLeft size={48} />
-            <span className="sr-only">Previous slide</span>
-          </Button>
-
-          <Button
-            className="absolute top-1/3 -right-4 translate-y-2/3 cursor-pointer border-0 bg-transparent text-yellow-400 shadow-none transition-all duration-200 hover:bg-transparent hover:text-yellow-600"
-            onClick={scrollNext}
-          >
-            <ChevronRight size={48} />
-            <span className="sr-only">Next slide</span>
-          </Button>
-
-          {/* Carousel indicators */}
-          <div className="mt-8 flex justify-center gap-2">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                className={`h-3 w-3 cursor-pointer rounded-full transition-all duration-300 ${
-                  index === current
-                    ? "bg-gradient-to-r from-blue-700 to-sky-950"
-                    : "bg-slate-300 hover:bg-slate-400"
-                }`}
-                onClick={() => {
-                  emblaApi?.scrollTo(index);
-                }}
-              />
+      <div className="relative py-8 lg:px-8 lg:py-16">
+        <div
+          className="relative mx-auto h-[500px] w-full max-w-6xl overflow-hidden py-16"
+          ref={emblaRef}
+        >
+          <div className="-ml-2 flex md:-ml-4">
+            {projects.map((project, index) => (
+              <div
+                key={project.id}
+                className="min-w-0 shrink-0 grow-0 basis-full pl-2 md:basis-1/2 md:pl-4 lg:basis-1/3"
+              >
+                <ProjectCard
+                  project={project}
+                  isCenter={current === index}
+                  index={index}
+                />
+              </div>
             ))}
           </div>
         </div>
 
-        <div className="text-center">
-          <Button
-            size="lg"
-            className="transform rounded-2xl border-0 bg-gradient-to-r from-blue-700 to-sky-950 px-10 py-4 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-purple-500/25 hover:brightness-125"
-            onClick={() =>
-              window.open("https://github.com/tu-usuario", "_blank")
-            }
-          >
-            <Github className="mr-3 h-5 w-5" />
-            <span className="font-semibold">Ver más proyectos en GitHub</span>
-            <Sparkles className="ml-3 h-5 w-5" />
-          </Button>
+        <Button
+          className="absolute top-1/3 -left-4 hidden translate-y-2/3 cursor-pointer border-0 bg-transparent text-yellow-400 shadow-none transition-all duration-200 hover:bg-transparent hover:text-yellow-600 lg:block"
+          onClick={scrollPrev}
+        >
+          <ChevronLeft size={48} />
+          <span className="sr-only">Previous slide</span>
+        </Button>
+
+        <Button
+          className="absolute top-1/3 -right-4 hidden translate-y-2/3 cursor-pointer border-0 bg-transparent text-yellow-400 shadow-none transition-all duration-200 hover:bg-transparent hover:text-yellow-600 lg:block"
+          onClick={scrollNext}
+        >
+          <ChevronRight size={48} />
+          <span className="sr-only">Next slide</span>
+        </Button>
+
+        <div className="mt-8 flex justify-center gap-2">
+          {projects.map((_, index) => (
+            <button
+              key={index}
+              className={`h-3 w-3 cursor-pointer rounded-full transition-all duration-300 ${
+                index === current
+                  ? "bg-gradient-to-r from-blue-700 to-sky-950"
+                  : "bg-slate-300 hover:bg-slate-400"
+              }`}
+              onClick={() => {
+                emblaApi?.scrollTo(index);
+              }}
+            />
+          ))}
         </div>
       </div>
-    </section>
+
+      <div className="text-center">
+        <Button
+          size="lg"
+          className="transform rounded-2xl border-0 bg-gradient-to-r from-blue-700 to-sky-950 px-10 py-4 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-purple-500/25 hover:brightness-125"
+          onClick={() => window.open("https://github.com/tu-usuario", "_blank")}
+        >
+          <Github className="mr-3 h-5 w-5" />
+          <span className="font-semibold">Ver más proyectos en GitHub</span>
+          <Sparkles className="ml-3 h-5 w-5" />
+        </Button>
+      </div>
+    </SectionContainer>
   );
 };
 
