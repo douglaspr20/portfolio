@@ -5,7 +5,7 @@ import { useStore } from "@nanostores/react";
 import { $currentMenuItemActive } from "@/store";
 import { menuItems } from "@/lib/siteConfig";
 import type { MenuItems } from "@/types/menuItems";
-import ThemeToggle from "../ui/theme-toggle";
+import ThemeToggle from "../ui/ThemeToggle";
 import { capitalize } from "@/lib/utils";
 
 export default function Header() {
