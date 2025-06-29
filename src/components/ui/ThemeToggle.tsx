@@ -21,8 +21,6 @@ export default function ThemeToggle() {
 
   return (
     <button
-      // variant="ghost"
-      // size="icon"
       onClick={toggleTheme}
       className="cursor-pointer rounded-full p-2 transition-colors hover:bg-neutral-300 dark:hover:bg-neutral-400/20"
     >

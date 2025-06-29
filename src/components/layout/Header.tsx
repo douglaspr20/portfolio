@@ -1,12 +1,12 @@
-import ThemeToggle from "./ui/theme-toggle";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { capitalize } from "../lib/utils";
 import { useStore } from "@nanostores/react";
 import { $currentMenuItemActive } from "@/store";
 import { menuItems } from "@/lib/siteConfig";
 import type { MenuItems } from "@/types/menuItems";
+import ThemeToggle from "../ui/theme-toggle";
+import { capitalize } from "@/lib/utils";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

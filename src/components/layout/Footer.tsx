@@ -1,8 +1,8 @@
 import { personalInfo } from "@/lib/data";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Coffee } from "lucide-react";
-import { TypingAnimation } from "./typing-animation";
-import SocialIcon from "./ui/social-icon";
+import { TypingAnimation } from "../common/TypingAnimation";
+import SocialIcon from "../ui/SocialIcon";
 import { menuItems } from "@/lib/siteConfig";
 import { capitalize } from "@/lib/utils";
 import { $currentMenuItemActive } from "@/store";
@@ -33,7 +33,6 @@ export default function Footer() {
             </p>
           </motion.div>
 
-          {/* Enlaces de navegación */}
           <div className="flex flex-wrap justify-center gap-6">
             {menuItems.map((link) => (
               <a
@@ -77,7 +76,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Línea decorativa animada */}
         <div className="mt-8 border-t border-gray-400 pt-8 dark:border-gray-800">
           <div className="flex items-center justify-center">
             <p className="text-xs text-gray-500">

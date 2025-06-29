@@ -40,7 +40,7 @@ export default function TimelineItem({
             damping: 15,
             delay: index * 0.2 + 0.2,
           }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true }}
         />
         {!isLast && (
           <motion.div
@@ -60,7 +60,7 @@ export default function TimelineItem({
           transition={{ duration: 0.5, delay: index * 0.2 + 0.1 }}
           viewport={{ once: true, margin: "-50px" }}
         >
-          <h2 className="text-xl font-medium sm:text-2xl">{title}</h2>
+          <h2 className="text-lg font-medium sm:text-2xl">{title}</h2>
           <h3 className="text-sm font-medium text-sky-500 sm:text-lg">
             {company}
           </h3>

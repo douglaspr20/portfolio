@@ -49,7 +49,6 @@ export function AnimatedBackground() {
         }}
       />
 
-      {/* Partículas flotantes */}
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
@@ -73,7 +72,6 @@ export function AnimatedBackground() {
         />
       ))}
 
-      {/* Líneas de código flotantes */}
       <div className="absolute inset-0 opacity-5">
         {Array.from({ length: 8 }).map((_, i) => (
           <motion.div
@@ -109,7 +107,6 @@ export function AnimatedBackground() {
         ))}
       </div>
 
-      {/* Grid pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
           className="h-full w-full"

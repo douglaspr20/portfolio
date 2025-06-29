@@ -18,6 +18,7 @@ import KubernetesLogo from "@/assets/icons/kubernetes.svg";
 import GitLogo from "@/assets/icons/git.svg";
 import AwsLogo from "@/assets/icons/aws.svg";
 import GraphqlLogo from "@/assets/icons/graphql.svg";
+import type { Project, Skill } from "@/interfaces";
 
 export const personalInfo = {
   name: "Douglas Pérez",
@@ -86,16 +87,6 @@ export const workExperience = [
     ],
   },
 ];
-
-export interface Skill {
-  id: string;
-  name: string;
-  icon: string;
-  color: string;
-  description: string;
-  experience: string;
-  category: string;
-}
 
 export const skills: Skill[] = [
   {
@@ -299,16 +290,6 @@ export const skills: Skill[] = [
     category: "API Development",
   },
 ];
-
-export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  githubUrl: string;
-  liveUrl?: string;
-  technologies: string[];
-}
 
 export const projects: Project[] = [
   {

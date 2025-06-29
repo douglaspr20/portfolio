@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Play, Pause, Section } from "lucide-react";
-import { skills, type Skill } from "@/lib/data";
+import { Play, Pause } from "lucide-react";
+import { skills } from "@/lib/data";
 import SkillButton from "../SkillButton";
 import SelectedSkillDetails from "../SelectedSkillDetails";
-import { TypingAnimation } from "../typing-animation";
+import { TypingAnimation } from "../common/TypingAnimation";
 import { useStore } from "@nanostores/react";
 import { $currentTheme } from "@/store";
-import SectionContainer from "../SectionContainer";
+import SectionContainer from "../common/SectionContainer";
+import type { Skill } from "@/interfaces";
 
 export default function SkillsSectionEnhanced() {
   const [selectedSkill, setSelectedSkill] = useState<Skill>(skills[0]);
@@ -65,7 +66,7 @@ export default function SkillsSectionEnhanced() {
   return (
     <SectionContainer id="skills" ref={containerRef}>
       <div className="mb-8">
-        <h2 className="text-4xl font-bold text-white md:text-4xl">
+        <h2 className="text-2xl font-bold md:text-4xl">
           <TypingAnimation
             texts={titles}
             className="bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent"

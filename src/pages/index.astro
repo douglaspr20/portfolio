@@ -1,19 +1,19 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import ExperienceSection from "@/components/sections/ExperienceSection";
+import Experience from "@/components/sections/Experience";
 import Skills from "@/components/sections/Skills";
 import Contact from "@/components/sections/Contact";
-import HeroSection from "@/components/sections/HeroSection";
+import Home from "@/components/sections/Home";
 import Projects from "@/components/sections/Projects";
 import Education from "@/components/sections/Education";
 
 
 ---
 <Layout title="Douglas Pérez - Portfolio">
-  <HeroSection client:only="react" />
-  <ExperienceSection client:only="react">
+  <Home client:only="react" />
+  <Experience client:only="react">
     <div slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
-  </ExperienceSection>
+  </Experience>
    <Skills client:visible />
  <Projects client:visible>
     <div id="projects" slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />

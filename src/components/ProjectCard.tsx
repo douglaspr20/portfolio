@@ -1,8 +1,8 @@
-import type { Project } from "@/lib/data";
 import { ExternalLink, Github, RotateCcw, Sparkles } from "lucide-react";
 import { useEffect, useState, type FC } from "react";
-import { Card } from "./ui/card";
-import { Button } from "./ui/button";
+import { Card } from "./ui/Card";
+import { Button } from "./ui/Button";
+import type { Project } from "@/interfaces";
 
 interface Props {
   project: Project;
@@ -28,7 +28,7 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
       : "shadow-lg shadow-black/10",
     opacity: isCenter ? "opacity-100" : "opacity-80",
     zIndex: isCenter ? "z-20" : "z-10",
-    height: isCenter ? "h-96" : "h-80",
+    height: isCenter ? "h-96" : "h-90",
   };
 
   return (
@@ -42,7 +42,6 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
       <div
         className={`relative w-full ${cardStyles.height} perspective-1000 interpolate-size transition-all duration-700`}
       >
-        {/* Clickable indicator */}
         <div
           className={`absolute top-2 left-3 z-30 transition-all duration-300 ${
             isHovered && !isFlipped
@@ -63,7 +62,6 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
           </div>
         </div>
 
-        {/* Back indicator */}
         <div
           className={`absolute top-2 left-3 z-30 transition-all duration-300 ${
             isHovered && isFlipped
@@ -92,7 +90,6 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Front of card */}
           <Card
             className={`absolute inset-0 h-full w-full overflow-hidden rounded-2xl border-0 bg-gradient-to-br from-slate-900 to-slate-700 backface-hidden ${cardStyles.shadow}`}
           >
@@ -102,7 +99,6 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
             >
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-              {/* Title */}
               <div className="absolute inset-0 flex items-center justify-center p-6">
                 <h3
                   className={`text-center font-bold text-white drop-shadow-2xl ${
@@ -113,7 +109,6 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
                 </h3>
               </div>
 
-              {/* Decorative elements */}
               <div className="absolute top-4 right-4">
                 <div
                   className={`rounded-full bg-gradient-to-r from-blue-700 to-sky-950 p-2 transition-all duration-300 ${
@@ -136,26 +131,27 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
             </div>
           </Card>
 
-          {/* Back of card */}
           <Card
             className={`absolute inset-0 flex h-full w-full rotate-y-180 flex-col justify-between rounded-2xl border-0 bg-gradient-to-br from-white via-slate-50 to-slate-100 p-6 backface-hidden ${cardStyles.shadow}`}
           >
             <div className="mt-3 flex-1">
               <h3
                 className={`mb-4 bg-gradient-to-r from-yellow-600 to-sky-600 bg-clip-text font-bold text-transparent ${
-                  isCenter ? "text-2xl" : "text-xl"
+                  isCenter ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"
                 }`}
               >
                 {project.title}
               </h3>
 
-              <p
-                className={`mb-6 leading-relaxed text-slate-600 ${
-                  isCenter ? "text-base" : "text-sm"
-                }`}
+              <div
+                className={`mb-6 [display:-webkit-box] max-h-36 overflow-hidden text-ellipsis text-slate-600 [-webkit-box-orient:vertical] ${
+                  isCenter
+                    ? "text-sm sm:text-base md:[-webkit-line-clamp:4] xl:[-webkit-line-clamp:5]"
+                    : "text-xs [-webkit-line-clamp:4] sm:text-sm"
+                } `}
               >
                 {project.description}
-              </p>
+              </div>
 
               <div className="mb-6 flex flex-wrap gap-2">
                 {project.technologies.map((tech, techIndex) => (

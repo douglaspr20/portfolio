@@ -1,7 +1,7 @@
 import { type FC } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import type { Skill } from "@/lib/data";
 import { LazyIcon } from "./LazyIcon";
+import type { Skill } from "@/interfaces";
 
 interface Props {
   selectedSkill: Skill;
@@ -21,7 +21,6 @@ const SelectedSkillDetails: FC<Props> = ({ selectedSkill }) => {
           background: `linear-gradient(135deg, ${selectedSkill.color}05, transparent, ${selectedSkill.color}05)`,
         }}
       >
-        {/* Fondo animado */}
         <motion.div
           className="absolute inset-0 opacity-5"
           style={{
@@ -38,7 +37,6 @@ const SelectedSkillDetails: FC<Props> = ({ selectedSkill }) => {
           }}
         />
 
-        {/* Icono grande con efecto de explosión */}
         <motion.div
           className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl"
           style={{
@@ -51,7 +49,6 @@ const SelectedSkillDetails: FC<Props> = ({ selectedSkill }) => {
         >
           {<LazyIcon icon={selectedSkill.icon} size={60} />}
 
-          {/* Anillo de explosión */}
           <motion.div
             className="absolute inset-0 rounded-2xl border-2"
             style={{ borderColor: selectedSkill.color }}
@@ -62,10 +59,9 @@ const SelectedSkillDetails: FC<Props> = ({ selectedSkill }) => {
           />
         </motion.div>
 
-        {/* Información */}
         <div className="relative z-10 mb-6 text-center">
           <motion.h3
-            className="mb-2 text-2xl font-bold text-slate-800 dark:text-slate-100"
+            className="mb-2 text-xl font-bold text-slate-800 sm:text-2xl dark:text-slate-100"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -92,7 +88,7 @@ const SelectedSkillDetails: FC<Props> = ({ selectedSkill }) => {
 
         {/* Descripción */}
         <motion.p
-          className="relative z-10 mb-6 text-center leading-relaxed text-slate-600 dark:text-slate-300"
+          className="relative z-10 mb-6 leading-relaxed text-slate-600 sm:text-center dark:text-slate-300"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}

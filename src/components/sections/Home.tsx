@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Coffee, Code, Sparkles, Github, Linkedin, Mail } from "lucide-react";
-import { AnimatedBackground } from "../AnimatedBackground";
-import { TypingAnimation } from "../typing-animation";
-import SocialIcon from "../ui/social-icon";
+import { AnimatedBackground } from "../layout/AnimatedBackground";
+import { TypingAnimation } from "../common/TypingAnimation";
+import SocialIcon from "../ui/SocialIcon";
 import { personalInfo } from "@/lib/data";
 
 const HeroSection = () => {

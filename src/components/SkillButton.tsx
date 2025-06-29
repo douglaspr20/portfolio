@@ -1,10 +1,10 @@
-import type { Skill } from "@/lib/data";
 import { type FC } from "react";
 import { motion } from "framer-motion";
-import { Particles } from "./particles";
+import { Particles } from "./common/Particles";
 import { LazyIcon } from "./LazyIcon";
 import { useStore } from "@nanostores/react";
 import { $currentTheme } from "@/store";
+import type { Skill } from "@/interfaces";
 
 interface Props {
   skill: Skill;
@@ -98,7 +98,7 @@ const SkillButton: FC<Props> = ({
           className={`mx-auto mb-2`}
           delay={100}
         />
-        <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
+        <p className="text-xs font-medium text-slate-700 sm:text-sm dark:text-slate-300">
           {skill.name}
         </p>
       </motion.div>

@@ -9,10 +9,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../ui/card";
-import { Badge } from "../ui/badge";
-import { TypingAnimation } from "../typing-animation";
-import SectionContainer from "../SectionContainer";
+} from "../ui/Card";
+import { Badge } from "../ui/Badge";
+import { TypingAnimation } from "../common/TypingAnimation";
+import SectionContainer from "../common/SectionContainer";
 
 const Education = () => {
   const [activeTab, setActiveTab] = useState("education");
@@ -32,7 +32,7 @@ const Education = () => {
         transition={{ duration: 0.6 }}
         className="mb-12"
       >
-        <h2 className="mb-3 text-4xl font-bold text-white md:text-4xl">
+        <h2 className="mb-6 text-2xl font-bold md:text-4xl">
           <TypingAnimation
             texts={titles}
             className="bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent"
@@ -77,7 +77,7 @@ const Education = () => {
                 >
                   <Card className="overflow-hidden border-l-4 border-l-blue-600 transition-all duration-300 hover:shadow-xl">
                     <CardHeader className="bg-gradient-to-r from-blue-50 to-sky-50 dark:from-slate-950 dark:to-slate-800">
-                      <div className="flex items-start justify-between">
+                      <div className="flex flex-col items-start justify-between md:flex-row">
                         <div>
                           <CardTitle className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
                             {item.title}
@@ -144,7 +144,7 @@ const Education = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.4 }}
-              className="grid grid-cols-1 gap-6 md:grid-cols-2"
+              className="grid grid-cols-1 gap-6 lg:grid-cols-2"
             >
               {education.certifications.map((cert, index) => (
                 <motion.div

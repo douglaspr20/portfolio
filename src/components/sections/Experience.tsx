@@ -2,9 +2,9 @@ import { workExperience } from "@/lib/data";
 import TimelineItem from "../ui/TimelineItem";
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
-import MotionWrapper from "../MotionWrapper";
-import { TypingAnimation } from "../typing-animation";
-import SectionContainer from "../SectionContainer";
+import MotionWrapper from "../common/MotionWrapper";
+import { TypingAnimation } from "../common/TypingAnimation";
+import SectionContainer from "../common/SectionContainer";
 
 export default function ExperienceSection() {
   const titles = [
@@ -16,7 +16,7 @@ export default function ExperienceSection() {
   return (
     <SectionContainer id="experience">
       <MotionWrapper>
-        <h2 className="mb-6 text-2xl font-bold text-white sm:text-4xl">
+        <h2 className="mb-6 text-2xl font-bold sm:text-4xl">
           <TypingAnimation
             texts={titles}
             className="bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent"
