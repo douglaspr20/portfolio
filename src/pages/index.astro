@@ -1,6 +1,11 @@
 ---
-import { defaultLang } from "@/i18n";
+import { languages } from "@/i18n";
 
 
-return Astro.redirect(`/${defaultLang}`,);
+const currentLang = Astro.currentLocale ?? 'en';
+
+const redirectTo = (currentLang in languages) ? currentLang : "en";
+
+return Astro.redirect(`/${redirectTo}`);
+
 ---
