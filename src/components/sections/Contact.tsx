@@ -6,15 +6,18 @@ import { Button } from "../ui/Button";
 import { ArrowRight, Clock, MapPin, Phone, Mail } from "lucide-react";
 import { TypingAnimation } from "../common/TypingAnimation";
 import SectionContainer from "../common/SectionContainer";
+import type { Language } from "@/types";
+import type { FC } from "react";
+import { ui } from "@/i18n";
 
-const Contact = () => {
-  const titles = [
-    "Let's work together",
-    "Contact me",
-    "Get in touch",
-    "Start your project",
-    "Say hello",
-  ];
+interface Props {
+  currentLang: Language;
+}
+
+const Contact: FC<Props> = ({ currentLang }) => {
+  const t = ui[currentLang];
+
+  const { titles, inputs, description, letsTalk, submitButton } = t.contact;
 
   const contactsMethods = [
     {
@@ -59,35 +62,38 @@ const Contact = () => {
           <CardContent className="p-8">
             <form className="space-y-6">
               <div className="space-y-2">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">{inputs.name.label}</label>
                 <Input
                   id="name"
-                  placeholder="Your name"
+                  placeholder={inputs.name.placeholder}
                   className="mt-1 border-gray-500/25 placeholder:text-gray-400 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white"
                 />
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">{inputs.email.label}</label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="your@email.com"
+                  placeholder={inputs.email.placeholder}
                   className="mt-1 border-gray-500/25 placeholder:text-gray-400 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white"
                 />
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message">Message</label>
+                <label htmlFor="message">{inputs.message.label}</label>
                 <Textarea
                   id="message"
-                  placeholder="Tell me about your project..."
+                  placeholder={inputs.message.placeholder}
                   className="mt-1 min-h-[120px] resize-none border-gray-500/25 placeholder:text-gray-400 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white"
                 />
               </div>
 
-              <Button className="w-full transform rounded-2xl border-0 bg-gradient-to-r from-blue-700 to-sky-950 px-10 py-4 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-purple-500/25 hover:brightness-125">
-                Send message
+              <Button
+                type="submit"
+                className="w-full transform rounded-2xl border-0 bg-gradient-to-r from-blue-700 to-sky-950 px-10 py-4 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-purple-500/25 hover:brightness-125"
+              >
+                {submitButton}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </form>
@@ -96,18 +102,15 @@ const Contact = () => {
 
         <div className="space-y-8">
           <h3 className="mb-4 text-2xl font-bold dark:text-white">
-            Let's talk!
+            {letsTalk}
           </h3>
-          <p className="mb-8 text-gray-700 dark:text-gray-300">
-            I'm available for new projects and collaborations. Don't hesitate to
-            reach out to discuss your ideas.
-          </p>
+          <p className="mb-8 text-gray-700 dark:text-gray-300">{description}</p>
 
           <div className="space-y-6">
             {contactsMethods.map((method) => (
               <Card
                 key={method.title}
-                className="group flex cursor-pointer flex-col items-center justify-center bg-gradient-to-r p-4 transition-colors group-hover:scale-110 hover:brightness-90 md:flex-row md:space-x-4 dark:border-transparent dark:from-slate-950 dark:to-slate-800 dark:shadow-slate-600 dark:hover:brightness-125"
+                className="group flex cursor-pointer flex-col items-center justify-center bg-gradient-to-r p-4 transition-colors group-hover:scale-110 hover:brightness-90 md:flex-row md:justify-start md:space-x-4 dark:border-transparent dark:from-slate-950 dark:to-slate-800 dark:shadow-slate-600 dark:hover:brightness-125"
               >
                 <div
                   className={`flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br ${method.backgroundGradientIcon} transition-transform group-hover:scale-110`}

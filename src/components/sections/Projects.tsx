@@ -2,12 +2,21 @@ import { TypingAnimation } from "../common/TypingAnimation";
 import { Button } from "../ui/Button";
 import { ChevronLeft, ChevronRight, Github, Sparkles } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
-import { projects } from "@/lib/data";
 import { useCallback, useEffect, useState } from "react";
 import ProjectCard from "../ProjectCard";
 import SectionContainer from "../common/SectionContainer";
+import type { Language } from "@/types";
+import { ui } from "@/i18n";
 
-const Projects = () => {
+interface Props {
+  currentLang: Language;
+}
+
+const Projects = ({ currentLang }: Props) => {
+  const t = ui[currentLang];
+
+  const { titles, projects, buttonMoreProjectOnGitHub } = t.projects;
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     axis: "x",
@@ -42,8 +51,6 @@ const Projects = () => {
       emblaApi.off("reInit", updateSelectedIndex);
     };
   }, [emblaApi, updateSelectedIndex]);
-
-  const titles = ["Projects", "Works", "Successes"];
 
   return (
     <SectionContainer id="projects">
@@ -115,7 +122,7 @@ const Projects = () => {
           onClick={() => window.open("https://github.com/tu-usuario", "_blank")}
         >
           <Github className="mr-3 h-4 w-4 sm:h-5 sm:w-5" />
-          <span className="font-semibold">Más proyectos en GitHub</span>
+          <span className="font-semibold">{buttonMoreProjectOnGitHub}</span>
           <Sparkles className="ml-3 h-4 w-4 sm:h-5 sm:w-5" />
         </Button>
       </div>

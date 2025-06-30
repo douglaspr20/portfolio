@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, type FC } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { Award, Calendar, GraduationCap, MapPin } from "lucide-react";
-import { education } from "@/lib/data";
 import {
   Card,
   CardContent,
@@ -13,16 +12,18 @@ import {
 import { Badge } from "../ui/Badge";
 import { TypingAnimation } from "../common/TypingAnimation";
 import SectionContainer from "../common/SectionContainer";
+import type { Language } from "@/types";
+import { ui } from "@/i18n";
 
-const Education = () => {
+interface Props {
+  currentLang: Language;
+}
+
+const Education: FC<Props> = ({ currentLang }) => {
+  const t = ui[currentLang];
+  const { titles, degrees, certifications, tabsLabels } = t.education;
+
   const [activeTab, setActiveTab] = useState("education");
-
-  const titles = [
-    "Professional Journey",
-    "Education background",
-    "Certifications",
-    "Achievements",
-  ];
 
   return (
     <SectionContainer id="education">
@@ -47,14 +48,14 @@ const Education = () => {
             className="flex h-[100%] items-center gap-2 rounded-lg transition-all duration-300 data-[state=active]:bg-blue-700 data-[state=active]:text-white dark:text-white"
           >
             <GraduationCap className="h-4 w-4" />
-            Education
+            {tabsLabels.education}
           </TabsTrigger>
           <TabsTrigger
             value="certifications"
             className="flex h-[100%] items-center gap-2 rounded-lg transition-all duration-300 data-[state=active]:bg-yellow-500 data-[state=active]:text-white dark:text-white"
           >
             <Award className="h-4 w-4" />
-            Certifications
+            {tabsLabels.certifications}
           </TabsTrigger>
         </TabsList>
 
@@ -68,7 +69,7 @@ const Education = () => {
               transition={{ duration: 0.4 }}
               className="space-y-6"
             >
-              {education.degree.map((item, index) => (
+              {degrees.map((item, index) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -146,7 +147,7 @@ const Education = () => {
               transition={{ duration: 0.4 }}
               className="grid grid-cols-1 gap-6 lg:grid-cols-2"
             >
-              {education.certifications.map((cert, index) => (
+              {certifications.map((cert, index) => (
                 <motion.div
                   key={cert.id}
                   initial={{ opacity: 0, scale: 0.9 }}

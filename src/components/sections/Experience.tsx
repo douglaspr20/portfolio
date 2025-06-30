@@ -1,18 +1,21 @@
-import { workExperience } from "@/lib/data";
 import TimelineItem from "../ui/TimelineItem";
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 import MotionWrapper from "../common/MotionWrapper";
 import { TypingAnimation } from "../common/TypingAnimation";
 import SectionContainer from "../common/SectionContainer";
+import type { Language } from "@/types";
+import { ui } from "@/i18n";
 
-export default function ExperienceSection() {
-  const titles = [
-    "Work experience",
-    "Career background",
-    "Employment history",
-    "Relevant experience",
-  ];
+interface Props {
+  currentLang: Language;
+}
+
+export default function ExperienceSection({ currentLang }: Props) {
+  const t = ui[currentLang];
+
+  const { titles, workExperience, keyAchievements } = t.experience;
+
   return (
     <SectionContainer id="experience">
       <MotionWrapper>
@@ -45,7 +48,7 @@ export default function ExperienceSection() {
                 <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-gray-500/10">
                   <Briefcase className="h-4 w-4 text-blue-500" />
                 </div>
-                <h4 className="text-sm font-medium">Key Achievements</h4>
+                <h4 className="text-sm font-medium">{keyAchievements}</h4>
               </div>
               <ul className="ml-4 list-none space-y-2 text-sm">
                 {job.achievements.map((achievement, i) => (

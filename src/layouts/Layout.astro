@@ -3,14 +3,16 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import '@fontsource-variable/noto-sans';
 import "../styles/global.css";
+import type { Language } from "@/types";
 
 interface Props {
+  lang: Language
   title?: string;
   description?: string;
 }
-const { title = "Douglas Pérez - Portfolio", description = "Commitment, efficiency and good code" } = Astro.props;
+const { title = "Douglas Pérez - Portfolio", description = "Commitment, efficiency and good code", lang = "en" } = Astro.props;
 ---
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -33,11 +35,11 @@ const { title = "Douglas Pérez - Portfolio", description = "Commitment, efficie
       class="fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
     </div>
-    <Header client:only="react"/>
+    <Header client:only="react" currentLang={lang} />
     <main class="flex-grow" id="home">
         <slot />
     </main>
-    <Footer client:only="react" />
+    <Footer client:only="react" currentLang={lang} />
   </body>
 </html>
 

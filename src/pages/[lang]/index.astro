@@ -1,0 +1,39 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Experience from "@/components/sections/Experience";
+import Skills from "@/components/sections/Skills";
+import Contact from "@/components/sections/Contact";
+import Home from "@/components/sections/Home";
+import Projects from "@/components/sections/Projects";
+import Education from "@/components/sections/Education";
+import type { Language } from "@/types";
+import { ui, languages } from "@/i18n";
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({
+    params: { lang },
+  }));
+
+}
+
+export const defaultRedirect = "/en";
+
+const lang = (Astro.params.lang || "en") as Language;
+
+const {title, description} = ui[lang].seo
+
+---
+<Layout lang={lang} title={title} description={description}>
+  <Home client:only="react" currentLang={lang} />
+  <Experience client:only="react" currentLang={lang}>
+    <div slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
+  </Experience>
+  <Skills client:visible currentLang={lang} />
+  <Projects client:visible currentLang={lang}>
+    <div id="projects" slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
+  </Projects>
+  <Education client:visible currentLang={lang}>
+    <div slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
+  </Education>
+   <Contact client:visible currentLang={lang} />
+</Layout>

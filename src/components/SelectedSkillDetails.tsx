@@ -5,9 +5,13 @@ import type { Skill } from "@/interfaces";
 
 interface Props {
   selectedSkill: Skill;
+  experienceLabel: string;
 }
 
-const SelectedSkillDetails: FC<Props> = ({ selectedSkill }) => {
+const SelectedSkillDetails: FC<Props> = ({
+  selectedSkill,
+  experienceLabel,
+}) => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -86,7 +90,6 @@ const SelectedSkillDetails: FC<Props> = ({ selectedSkill }) => {
           </motion.div>
         </div>
 
-        {/* Descripción */}
         <motion.p
           className="relative z-10 mb-6 leading-relaxed text-slate-600 sm:text-center dark:text-slate-300"
           initial={{ y: 20, opacity: 0 }}
@@ -96,7 +99,6 @@ const SelectedSkillDetails: FC<Props> = ({ selectedSkill }) => {
           {selectedSkill.description}
         </motion.p>
 
-        {/* Barra de experiencia mejorada */}
         <motion.div
           className="relative z-10"
           initial={{ y: 20, opacity: 0 }}
@@ -105,7 +107,7 @@ const SelectedSkillDetails: FC<Props> = ({ selectedSkill }) => {
         >
           <div className="mb-2 flex items-center justify-between">
             <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-              Nivel de experiencia
+              {experienceLabel}
             </span>
           </div>
           <div className="h-3 w-full overflow-hidden rounded-full bg-slate-200/50 backdrop-blur-sm dark:bg-slate-700/50">
@@ -120,7 +122,6 @@ const SelectedSkillDetails: FC<Props> = ({ selectedSkill }) => {
               }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
             >
-              {/* Efecto de brillo en la barra */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                 animate={{

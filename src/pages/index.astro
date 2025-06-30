@@ -1,25 +1,5 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Experience from "@/components/sections/Experience";
-import Skills from "@/components/sections/Skills";
-import Contact from "@/components/sections/Contact";
-import Home from "@/components/sections/Home";
-import Projects from "@/components/sections/Projects";
-import Education from "@/components/sections/Education";
+import { defaultLang } from "@/i18n";
 
-
+return Astro.redirect(`/${defaultLang}`,);
 ---
-<Layout title="Douglas Pérez - Portfolio">
-  <Home client:only="react" />
-  <Experience client:only="react">
-    <div slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
-  </Experience>
-   <Skills client:visible />
- <Projects client:visible>
-    <div id="projects" slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
-  </Projects>
-  <Education client:visible>
-    <div slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
-  </Education>
-  <Contact client:visible/>
-</Layout>

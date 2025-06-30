@@ -1,12 +1,20 @@
-import { useRef } from "react";
+import { useRef, type FC } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Coffee, Code, Sparkles, Github, Linkedin, Mail } from "lucide-react";
 import { AnimatedBackground } from "../layout/AnimatedBackground";
 import { TypingAnimation } from "../common/TypingAnimation";
 import SocialIcon from "../ui/SocialIcon";
 import { personalInfo } from "@/lib/data";
+import type { Language } from "@/types";
+import { ui } from "@/i18n";
 
-const HeroSection = () => {
+interface Props {
+  currentLang: Language;
+}
+
+const HeroSection: FC<Props> = ({ currentLang }) => {
+  const t = ui[currentLang];
+
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -16,12 +24,9 @@ const HeroSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  const roles = [
-    "Software Engineer",
-    "Full Stack Developer",
-    "Problem Solver",
-    "Code Enthusiast",
-  ];
+  const { greeting, name, roles, coffee, slang } = t.home;
+
+  const { github, linkedin, email } = personalInfo;
 
   return (
     <motion.section
@@ -44,7 +49,7 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Hello, I'm
+            {greeting}
           </motion.p>
 
           <motion.h1
@@ -58,7 +63,7 @@ const HeroSection = () => {
               stiffness: 100,
             }}
           >
-            Douglas Pérez
+            {name}
           </motion.h1>
 
           <motion.div
@@ -119,15 +124,14 @@ const HeroSection = () => {
           transition={{ delay: 1.3, duration: 0.8 }}
         >
           <p className="mb-6 text-lg leading-relaxed text-slate-300 sm:text-xl">
-            Commitment to excellence, dedication to detail, and passion for
-            development.
+            {slang}
           </p>
           <motion.div
             className="flex items-center justify-center gap-2 text-sm text-slate-400 sm:text-lg"
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
           >
-            Always with a cup of coffee in hand
+            {coffee}
             <motion.div
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{
@@ -148,7 +152,7 @@ const HeroSection = () => {
           transition={{ delay: 1.6, duration: 0.8 }}
         >
           <SocialIcon
-            link={personalInfo.github}
+            link={github}
             label="GitHub"
             className="p-3 hover:text-white"
           >
@@ -156,7 +160,7 @@ const HeroSection = () => {
           </SocialIcon>
 
           <SocialIcon
-            link={personalInfo.linkedin}
+            link={linkedin}
             label="LinkedIn"
             className="p-3 hover:text-blue-600"
           >
@@ -164,7 +168,7 @@ const HeroSection = () => {
           </SocialIcon>
 
           <SocialIcon
-            link={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}&su=Hey%20Douglas!`}
+            link={`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Hey%20Douglas!`}
             label="Email"
             className="p-3 hover:text-red-600"
           >

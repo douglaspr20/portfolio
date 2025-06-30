@@ -1,7 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type FC } from "react";
 import { motion } from "framer-motion";
 import { Play, Pause } from "lucide-react";
-import { skills } from "@/lib/data";
 import SkillButton from "../SkillButton";
 import SelectedSkillDetails from "../SelectedSkillDetails";
 import { TypingAnimation } from "../common/TypingAnimation";
@@ -9,8 +8,18 @@ import { useStore } from "@nanostores/react";
 import { $currentTheme } from "@/store";
 import SectionContainer from "../common/SectionContainer";
 import type { Skill } from "@/interfaces";
+import type { Language } from "@/types";
+import { ui } from "@/i18n";
 
-export default function SkillsSectionEnhanced() {
+interface Props {
+  currentLang: Language;
+}
+
+const SkillSection: FC<Props> = ({ currentLang }) => {
+  const t = ui[currentLang];
+
+  const { titles, skills, experienceLevelLabel } = t.skills;
+
   const [selectedSkill, setSelectedSkill] = useState<Skill>(skills[0]);
   const [isExploring, setIsExploring] = useState(true);
   const [particleTrigger, setParticleTrigger] = useState(false);
@@ -61,8 +70,6 @@ export default function SkillsSectionEnhanced() {
     color: skill.id === "nextjs" && isDarkMode ? "#ffffff" : skill.color,
   }));
 
-  const titles = ["Skills", "Technologies", "Expertise", "Powers"];
-
   return (
     <SectionContainer id="skills" ref={containerRef}>
       <div className="mb-8">
@@ -88,7 +95,10 @@ export default function SkillsSectionEnhanced() {
 
       <div className="grid gap-8 lg:grid-cols-3">
         <div className="order-1 lg:order-2 lg:col-span-1">
-          <SelectedSkillDetails selectedSkill={selectedSkill} />
+          <SelectedSkillDetails
+            selectedSkill={selectedSkill}
+            experienceLabel={experienceLevelLabel}
+          />
         </div>
         <div className="order-2 lg:order-1 lg:col-span-2">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
@@ -107,4 +117,5 @@ export default function SkillsSectionEnhanced() {
       </div>
     </SectionContainer>
   );
-}
+};
+export default SkillSection;
