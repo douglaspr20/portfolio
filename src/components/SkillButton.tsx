@@ -1,7 +1,7 @@
 import { type FC } from "react";
 import { motion } from "framer-motion";
-import { Particles } from "./common/Particles";
-import { LazyIcon } from "./LazyIcon";
+import { Particles } from "@/components/common/Particles";
+import { LazyIcon } from "@/components/LazyIcon";
 import { useStore } from "@nanostores/react";
 import { $currentTheme } from "@/store";
 import type { Skill } from "@/interfaces";

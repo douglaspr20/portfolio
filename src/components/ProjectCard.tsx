@@ -1,7 +1,7 @@
 import { ExternalLink, Github, RotateCcw, Sparkles } from "lucide-react";
 import { useEffect, useState, type FC } from "react";
-import { Card } from "./ui/Card";
-import { Button } from "./ui/Button";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
 import type { Project } from "@/interfaces";
 
 interface Props {

@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "./ui/Button";
+import { Button } from "@/components/ui/Button";
 import type { Language } from "@/types";
 import type { FC } from "react";
 import { languages } from "@/i18n";

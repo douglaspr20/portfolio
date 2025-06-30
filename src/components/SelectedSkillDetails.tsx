@@ -1,6 +1,6 @@
 import { type FC } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LazyIcon } from "./LazyIcon";
+import { LazyIcon } from "@/components/LazyIcon";
 import type { Skill } from "@/interfaces";
 
 interface Props {
