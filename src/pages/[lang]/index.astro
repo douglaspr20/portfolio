@@ -25,7 +25,7 @@ const {title, description} = ui[lang].seo
 ---
 <Layout lang={lang} title={title} description={description}>
   <Home client:only="react" currentLang={lang} />
-  <Experience client:only="react" currentLang={lang}>
+  <!-- <Experience client:only="react" currentLang={lang}>
     <div slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
   </Experience>
   <Skills client:visible currentLang={lang} />
@@ -35,5 +35,5 @@ const {title, description} = ui[lang].seo
   <Education client:visible currentLang={lang}>
     <div slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
   </Education>
-   <Contact client:visible currentLang={lang} />
+   <Contact client:visible currentLang={lang} /> -->
 </Layout>
