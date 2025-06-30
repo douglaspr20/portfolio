@@ -1,9 +1,9 @@
-import TimelineItem from "../ui/TimelineItem";
+import TimelineItem from "@/components/ui/TimelineItem";
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
-import MotionWrapper from "../common/MotionWrapper";
-import { TypingAnimation } from "../common/TypingAnimation";
-import SectionContainer from "../common/SectionContainer";
+import MotionWrapper from "@/components/common/MotionWrapper";
+import { TypingAnimation } from "@/components/common/TypingAnimation";
+import SectionContainer from "@/components/common/SectionContainer";
 import type { Language } from "@/types";
 import { ui } from "@/i18n";
 

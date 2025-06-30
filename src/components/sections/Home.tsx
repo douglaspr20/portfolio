@@ -1,9 +1,9 @@
 import { useRef, type FC } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Coffee, Code, Sparkles, Github, Linkedin, Mail } from "lucide-react";
-import { AnimatedBackground } from "../layout/AnimatedBackground";
-import { TypingAnimation } from "../common/TypingAnimation";
-import SocialIcon from "../ui/SocialIcon";
+import { AnimatedBackground } from "@/components/layout/AnimatedBackground";
+import { TypingAnimation } from "@/components/common/TypingAnimation";
+import SocialIcon from "@/components/ui/SocialIcon";
 import { personalInfo } from "@/lib/data";
 import type { Language } from "@/types";
 import { ui } from "@/i18n";

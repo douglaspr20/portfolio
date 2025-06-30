@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef, type FC } from "react";
 import { motion } from "framer-motion";
 import { Play, Pause } from "lucide-react";
-import SkillButton from "../SkillButton";
-import SelectedSkillDetails from "../SelectedSkillDetails";
-import { TypingAnimation } from "../common/TypingAnimation";
+import SkillButton from "@/components/SkillButton";
+import SelectedSkillDetails from "@/components/SelectedSkillDetails";
+import { TypingAnimation } from "@/components/common/TypingAnimation";
 import { useStore } from "@nanostores/react";
 import { $currentTheme } from "@/store";
-import SectionContainer from "../common/SectionContainer";
+import SectionContainer from "@/components/common/SectionContainer";
 import type { Skill } from "@/interfaces";
 import type { Language } from "@/types";
 import { ui } from "@/i18n";

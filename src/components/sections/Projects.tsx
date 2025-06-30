@@ -1,10 +1,10 @@
-import { TypingAnimation } from "../common/TypingAnimation";
-import { Button } from "../ui/Button";
+import { TypingAnimation } from "@/components/common/TypingAnimation";
+import { Button } from "@/components/ui/Button";
 import { ChevronLeft, ChevronRight, Github, Sparkles } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
-import ProjectCard from "../ProjectCard";
-import SectionContainer from "../common/SectionContainer";
+import ProjectCard from "@/components/ProjectCard";
+import SectionContainer from "@/components/common/SectionContainer";
 import type { Language } from "@/types";
 import { ui } from "@/i18n";
 

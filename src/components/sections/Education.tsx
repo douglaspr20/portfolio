@@ -1,6 +1,6 @@
 import React, { useState, type FC } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Award, Calendar, GraduationCap, MapPin } from "lucide-react";
 import {
   Card,
@@ -8,10 +8,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../ui/Card";
-import { Badge } from "../ui/Badge";
-import { TypingAnimation } from "../common/TypingAnimation";
-import SectionContainer from "../common/SectionContainer";
+} from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { TypingAnimation } from "@/components/common/TypingAnimation";
+import SectionContainer from "@/components/common/SectionContainer";
 import type { Language } from "@/types";
 import { ui } from "@/i18n";
 

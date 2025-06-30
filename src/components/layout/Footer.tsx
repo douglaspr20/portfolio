@@ -1,9 +1,8 @@
 import { personalInfo } from "@/lib/data";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Coffee } from "lucide-react";
-import { TypingAnimation } from "../common/TypingAnimation";
-import SocialIcon from "../ui/SocialIcon";
-import { menuItems } from "@/lib/siteConfig";
+import { TypingAnimation } from "@/components/common/TypingAnimation";
+import SocialIcon from "@/components/ui/SocialIcon";
 import { capitalize } from "@/lib/utils";
 import { $currentMenuItemActive } from "@/store";
 import { useStore } from "@nanostores/react";

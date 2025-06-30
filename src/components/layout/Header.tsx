@@ -3,12 +3,11 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useStore } from "@nanostores/react";
 import { $currentMenuItemActive } from "@/store";
-import { menuItems } from "@/lib/siteConfig";
 import type { Language, MenuItems } from "@/types";
-import ThemeToggle from "../ui/ThemeToggle";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 import { capitalize } from "@/lib/utils";
 import { ui } from "@/i18n";
-import LanguageSelector from "../LanguageSelector";
+import LanguageSelector from "@/components/LanguageSelector";
 
 interface Props {
   currentLang: Language;

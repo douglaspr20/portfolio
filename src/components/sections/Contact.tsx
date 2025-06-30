@@ -1,11 +1,11 @@
 import { personalInfo } from "@/lib/data";
-import { Card, CardContent } from "../ui/Card";
-import { Input } from "../ui/Input";
-import { Textarea } from "../ui/Textarea";
-import { Button } from "../ui/Button";
+import { Card, CardContent } from "@/components/ui/Card";
+import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
+import { Button } from "@/components/ui/Button";
 import { ArrowRight, Clock, MapPin, Phone, Mail } from "lucide-react";
-import { TypingAnimation } from "../common/TypingAnimation";
-import SectionContainer from "../common/SectionContainer";
+import { TypingAnimation } from "@/components/common/TypingAnimation";
+import SectionContainer from "@/components/common/SectionContainer";
 import type { Language } from "@/types";
 import type { FC } from "react";
 import { ui } from "@/i18n";
