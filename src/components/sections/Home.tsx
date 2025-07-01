@@ -30,12 +30,12 @@ const HeroSection: FC<Props> = ({ currentLang }) => {
 
   return (
     <motion.section
+      layout
       ref={containerRef}
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
       style={{ y, opacity }}
     >
       <AnimatedBackground />
-
       <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -176,7 +176,6 @@ const HeroSection: FC<Props> = ({ currentLang }) => {
           </SocialIcon>
         </motion.div>
       </div>
-
       <motion.div
         className="absolute top-0 left-0 h-96 w-96 rounded-full bg-blue-300/40 blur-3xl filter"
         animate={{
@@ -192,7 +191,7 @@ const HeroSection: FC<Props> = ({ currentLang }) => {
           opacity: [0.5, 0.3, 0.5],
         }}
         transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, delay: 4 }}
-      />
+      />{" "}
     </motion.section>
   );
 };
