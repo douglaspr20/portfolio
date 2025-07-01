@@ -24,9 +24,7 @@ const {title, description} = ui[lang].seo
 
 ---
 <Layout lang={lang} title={title} description={description}>
-  <Home client:only="react" currentLang={lang} >
-    <div slot="fallback" style="background: radial-gradient(circle at 20% 80%, #3b82f6 0%, transparent 50%)"/>
-    </Home>
+  <Home client:only="react" currentLang={lang} />
   <Experience client:visible  currentLang={lang}>
     <div slot="fallback" class="from-muted/20 to-background bg-gradient-to-b py-12 min-h-500" />
   </Experience>
