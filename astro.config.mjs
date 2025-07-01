@@ -13,7 +13,7 @@ export default defineConfig({
     resolve: {
       alias: {
         ...(import.meta.env.PROD
-          ? { "react-dom/client": "react-dom/client.edge" }
+          ? { "react-dom/server": "react-dom/server.edge" }
           : {}),
       },
     },
