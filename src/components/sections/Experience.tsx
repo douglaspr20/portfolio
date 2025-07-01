@@ -17,7 +17,7 @@ export default function ExperienceSection({ currentLang }: Props) {
   const { titles, workExperience, keyAchievements } = t.experience;
 
   return (
-    <SectionContainer id="experience">
+    <SectionContainer id="experience" className={"min-h-500"}>
       <MotionWrapper>
         <h2 className="mb-6 text-2xl font-bold sm:text-4xl">
           <TypingAnimation
@@ -38,6 +38,7 @@ export default function ExperienceSection({ currentLang }: Props) {
             index={index}
           >
             <motion.div
+              layout
               className="bg-background/80 dark:bg-card/10 mt-3 rounded-lg border border-gray-500/20 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-gray-500/25"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
