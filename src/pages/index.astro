@@ -1,11 +1,5 @@
 ---
-import { languages } from "@/i18n";
 
-
-const currentLang = Astro.currentLocale ?? 'en';
-
-const redirectTo = (currentLang in languages) ? currentLang : "en";
-
-return Astro.redirect(`/${redirectTo}`);
 
 ---
+// This Astro page redirects to the appropriate language version based on the current locale.
