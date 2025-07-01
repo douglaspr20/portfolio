@@ -510,14 +510,27 @@ export default {
       name: {
         label: "Nombre",
         placeholder: "Tu nombre",
+        errors: {
+          required: "El nombre es obligatorio",
+          minLength: "El nombre debe tener al menos 2 caracteres",
+        },
       },
       email: {
         label: "Email",
         placeholder: "tu@email.com",
+        errors: {
+          required: "El email es obligatorio",
+          invalid: "El email no es válido",
+        },
       },
       message: {
         label: "Mensaje",
         placeholder: "Cuéntame sobre tu proyecto...",
+        errors: {
+          required: "El mensaje es obligatorio",
+          minLength: "El mensaje debe tener al menos 10 caracteres",
+          maxLength: "El mensaje no puede exceder los 500 caracteres",
+        },
       },
     },
     submitButton: "Enviar mensaje",

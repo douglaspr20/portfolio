@@ -137,7 +137,9 @@ const Education: FC<Props> = ({ currentLang }) => {
               ))}
             </motion.div>
           </TabsContent>
+        </AnimatePresence>
 
+        <AnimatePresence mode="wait">
           <TabsContent value="certifications" className="mt-0">
             <motion.div
               key="certifications"

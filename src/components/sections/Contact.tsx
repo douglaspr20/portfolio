@@ -1,14 +1,12 @@
 import { personalInfo } from "@/lib/data";
-import { Card, CardContent } from "@/components/ui/Card";
-import { Input } from "@/components/ui/Input";
-import { Textarea } from "@/components/ui/Textarea";
-import { Button } from "@/components/ui/Button";
-import { ArrowRight, Clock, MapPin, Phone, Mail } from "lucide-react";
+import { Card } from "@/components/ui/Card";
+import { Clock, MapPin, Phone, Mail } from "lucide-react";
 import { TypingAnimation } from "@/components/common/TypingAnimation";
 import SectionContainer from "@/components/common/SectionContainer";
 import type { Language } from "@/types";
 import type { FC } from "react";
 import { ui } from "@/i18n";
+import ContactForm from "../ContactForm";
 
 interface Props {
   currentLang: Language;
@@ -17,7 +15,7 @@ interface Props {
 const Contact: FC<Props> = ({ currentLang }) => {
   const t = ui[currentLang];
 
-  const { titles, inputs, description, letsTalk, submitButton } = t.contact;
+  const { titles, description, letsTalk } = t.contact;
 
   const contactsMethods = [
     {
@@ -58,47 +56,7 @@ const Contact: FC<Props> = ({ currentLang }) => {
       </div>
 
       <div className="grid gap-12 lg:grid-cols-2">
-        <Card className="shadow-lg backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/50">
-          <CardContent className="p-8">
-            <form className="space-y-6">
-              <div className="space-y-2">
-                <label htmlFor="name">{inputs.name.label}</label>
-                <Input
-                  id="name"
-                  placeholder={inputs.name.placeholder}
-                  className="mt-1 border-gray-500/25 placeholder:text-gray-400 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="email">{inputs.email.label}</label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder={inputs.email.placeholder}
-                  className="mt-1 border-gray-500/25 placeholder:text-gray-400 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="message">{inputs.message.label}</label>
-                <Textarea
-                  id="message"
-                  placeholder={inputs.message.placeholder}
-                  className="mt-1 min-h-[120px] resize-none border-gray-500/25 placeholder:text-gray-400 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full transform rounded-2xl border-0 bg-gradient-to-r from-blue-700 to-sky-950 px-10 py-4 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-purple-500/25 hover:brightness-125"
-              >
-                {submitButton}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+        <ContactForm currentLang={currentLang} />
 
         <div className="space-y-8">
           <h3 className="mb-4 text-2xl font-bold dark:text-white">

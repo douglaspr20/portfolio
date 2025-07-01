@@ -509,14 +509,27 @@ export default {
       name: {
         label: "Name",
         placeholder: "Your name",
+        errors: {
+          required: "Name is required",
+          minLength: "Name must be at least 2 characters",
+        },
       },
       email: {
         label: "Email",
         placeholder: "your@email.com",
+        errors: {
+          required: "Email is required",
+          invalid: "Invalid email address",
+        },
       },
       message: {
         label: "Message",
         placeholder: "Tell me about your project...",
+        errors: {
+          required: "Message is required",
+          minLength: "Message must be at least 10 characters",
+          maxLength: "Message cannot exceed 500 characters",
+        },
       },
     },
     submitButton: "Send message",
