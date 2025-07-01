@@ -95,7 +95,11 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
           >
             <div
               className="relative h-full w-full rounded-2xl bg-cover bg-center"
-              style={{ backgroundImage: `url(${project.image})` }}
+              style={
+                project.image
+                  ? { backgroundImage: `url(${project.image})` }
+                  : {}
+              }
             >
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 

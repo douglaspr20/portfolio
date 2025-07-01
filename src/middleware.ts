@@ -1,6 +1,6 @@
 import { defineMiddleware } from "astro:middleware";
 export const onRequest = defineMiddleware(async (ctx, next) => {
-  const currentLocale = ctx.currentLocale ?? "en";
+  const currentLocale = ctx.preferredLocaleList?.[0] ?? "en";
 
   if (ctx.url.pathname === "/") {
     console.log("Redirecting to the localized homepage...");

@@ -350,7 +350,6 @@ export default {
         title: "Chrome Extension",
         description:
           "Chrome extension built with React and TypeScript, designed to enhance user productivity creating a contacts manager with advanced search and filtering capabilities",
-        image: "/placeholder.svg?height=300&width=400",
         githubUrl: `${personalInfo.github}/Chrome-extension`,
         technologies: ["React", "TypeScript", "Webpack", "Babel"],
       },
@@ -359,7 +358,6 @@ export default {
         title: "Discord Python Bot",
         description:
           "Discord bot developed in Python, featuring IA integration for natural language processing, user interaction, and automated responses. Also integrate search capabilities from wikipedia and YouTube.",
-        image: "/placeholder.svg?height=300&width=400",
         githubUrl: `${personalInfo.github}/discord-bot-python`,
         technologies: ["Python", "Discord API", "Natural Language Processing"],
       },
@@ -368,7 +366,6 @@ export default {
         title: "Microservices Rest Api",
         description:
           "Microservices architecture REST API built with Nest.js, designed for scalability and modularity. Includes user authentication, product management, and order processing functionalities. Deployed on AWS with Docker containers.",
-        image: "/placeholder.svg?height=300&width=400",
         githubUrl: `https://github.com/orgs/Nest-Microservices-Curso-Douglas/repositories`,
         technologies: [
           "Nest.js",
