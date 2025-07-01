@@ -12,7 +12,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-        ...(process.env.NODE_ENV === "production"
+        ...(import.meta.env.PROD
           ? { "react-dom/client": "react-dom/client.edge" }
           : {}),
       },
