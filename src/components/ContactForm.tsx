@@ -44,10 +44,11 @@ const ContactForm: FC<Props> = ({ currentLang }) => {
   };
 
   const onSubmit = async (data: ContactFormData) => {
+    const { name, email, message, turnstileToken } = data;
     try {
       const resVerify = await fetch("/api/verify", {
         method: "POST",
-        body: JSON.stringify({ token: data.turnstileToken }),
+        body: JSON.stringify({ token: turnstileToken }),
       });
 
       if (!resVerify.ok) {
@@ -59,7 +60,7 @@ const ContactForm: FC<Props> = ({ currentLang }) => {
       }
       const res = await fetch("/api/contact", {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify({ name, email, message }),
         headers: { "Content-Type": "application/json" },
       });
 
