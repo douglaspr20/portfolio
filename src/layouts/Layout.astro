@@ -18,7 +18,20 @@ const { title = "Douglas Pérez - Portfolio", description = "Commitment, efficie
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-     <meta name="description" content={description} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={import.meta.env.CURRENT_URL} />
+    <meta property="og:image" content={`${import.meta.env.CURRENT_URL}/images/preview.webp`} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${import.meta.env.CURRENT_URL}/images/preview.webp`} />
+
+    <meta name="author" content="Douglas Pérez" />
+
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +39,7 @@ const { title = "Douglas Pérez - Portfolio", description = "Commitment, efficie
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="canonical" href={import.meta.env.CURRENT_URL} />
   </head>
   <body
     class="flex flex-col min-h-screen bg-background font-sans antialiased"
