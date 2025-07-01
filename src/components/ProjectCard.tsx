@@ -132,11 +132,11 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
           </Card>
 
           <Card
-            className={`absolute inset-0 flex h-full w-full rotate-y-180 flex-col justify-between rounded-2xl border-0 bg-gradient-to-br from-white via-slate-50 to-slate-100 p-6 backface-hidden ${cardStyles.shadow}`}
+            className={`absolute inset-0 flex h-full w-full rotate-y-180 flex-col justify-between rounded-2xl border-0 bg-gradient-to-br from-white via-slate-50 to-slate-100 p-6 backface-hidden dark:from-slate-800 dark:via-slate-900 dark:to-slate-950 ${cardStyles.shadow}`}
           >
             <div className="mt-3 flex-1">
               <h3
-                className={`mb-4 bg-gradient-to-r from-yellow-600 to-sky-600 bg-clip-text font-bold text-transparent ${
+                className={`mb-4 bg-gradient-to-r from-yellow-600 to-sky-600 bg-clip-text font-bold text-transparent dark:from-yellow-400 dark:to-blue-400 ${
                   isCenter ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"
                 }`}
               >
@@ -144,7 +144,7 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
               </h3>
 
               <div
-                className={`mb-6 [display:-webkit-box] max-h-36 overflow-hidden text-ellipsis text-slate-600 [-webkit-box-orient:vertical] ${
+                className={`mb-6 [display:-webkit-box] max-h-36 overflow-hidden text-ellipsis text-slate-600 [-webkit-box-orient:vertical] dark:text-white ${
                   isCenter
                     ? "text-sm sm:text-base md:[-webkit-line-clamp:4] xl:[-webkit-line-clamp:5]"
                     : "text-xs [-webkit-line-clamp:4] sm:text-sm"

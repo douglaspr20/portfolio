@@ -333,7 +333,7 @@ export default {
         title: "Astro Store",
         description:
           "E-commerce platform built with Astro, featuring a modern design, product management, and secure payment integration. Authenticatio with Auth.js, data storage on Turso, and deployments on Netlify",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/images/astro-store.webp",
         githubUrl: `${personalInfo.github}/astro-store`,
         liveUrl: "https://douglasastrostore.netlify.app/",
         technologies: [
@@ -385,7 +385,7 @@ export default {
         title: "Douglas's Blog",
         description:
           "A personal blog built with Astro, showcasing articles on technology, programming, and personal experiences. Features a clean design, responsive layout, and easy navigation.",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/images/astro-blog.webp",
         githubUrl: `${personalInfo.github}/douglas-blog`,
         liveUrl: "https://douglas-blog.netlify.app/",
         technologies: ["Astro", "TypeScript", "Markdown"],
