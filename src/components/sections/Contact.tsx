@@ -4,7 +4,7 @@ import { Clock, MapPin, Phone, Mail } from "lucide-react";
 import { TypingAnimation } from "@/components/common/TypingAnimation";
 import SectionContainer from "@/components/common/SectionContainer";
 import type { Language } from "@/types";
-import type { FC } from "react";
+import type { FC, JSX } from "react";
 import { ui } from "@/i18n";
 import ContactForm from "../ContactForm";
 
@@ -15,34 +15,23 @@ interface Props {
 const Contact: FC<Props> = ({ currentLang }) => {
   const t = ui[currentLang];
 
-  const { titles, description, letsTalk } = t.contact;
+  const { titles, description, letsTalk, contactsMethods } = t.contact;
 
-  const contactsMethods = [
-    {
-      icon: <Mail className="h-6 w-6 text-white" />,
-      backgroundGradientIcon: "from-blue-500 to-blue-600",
-      title: "Email",
-      description: personalInfo.email,
-    },
-    {
-      icon: <Phone className="h-6 w-6 text-white" />,
-      backgroundGradientIcon: "from-yellow-500 to-yellow-600",
-      title: "Phone",
-      description: personalInfo.phoneNumber,
-    },
-    {
-      icon: <MapPin className="h-6 w-6 text-white" />,
-      backgroundGradientIcon: "from-sky-500 to-sky-600",
-      title: "Location",
-      description: personalInfo.location,
-    },
-    {
-      icon: <Clock className="h-6 w-6 text-white" />,
-      backgroundGradientIcon: "from-amber-500 to-amber-600",
-      title: "Hours",
-      description: "Mon - Fri: 9 AM - 6 PM",
-    },
-  ];
+  const contactsMethodsIcons: Record<string, JSX.Element> = {
+    email: <Mail className="h-6 w-6 text-white" />,
+    phone: <Phone className="h-6 w-6 text-white" />,
+    location: <MapPin className="h-6 w-6 text-white" />,
+    hours: <Clock className="h-6 w-6 text-white" />,
+  };
+
+  const contactsMethodsWithIcons = contactsMethods.map((method) => {
+    const icon = contactsMethodsIcons[method.id];
+
+    return {
+      ...method,
+      icon,
+    };
+  });
 
   return (
     <SectionContainer id="contact">
@@ -65,7 +54,7 @@ const Contact: FC<Props> = ({ currentLang }) => {
           <p className="mb-8 text-gray-700 dark:text-gray-300">{description}</p>
 
           <div className="space-y-6">
-            {contactsMethods.map((method) => (
+            {contactsMethodsWithIcons.map((method) => (
               <Card
                 key={method.title}
                 className="group flex cursor-pointer flex-col items-center justify-center bg-gradient-to-r p-4 transition-colors group-hover:scale-110 hover:brightness-90 md:flex-row md:justify-start md:space-x-4 dark:border-transparent dark:from-slate-950 dark:to-slate-800 dark:shadow-slate-600 dark:hover:brightness-125"

@@ -16,7 +16,9 @@ export const getContactSchema = (lang: Language) => {
       .string({ required_error: t.contact.inputs.message.errors.required })
       .min(10, t.contact.inputs.message.errors.minLength)
       .max(500, t.contact.inputs.message.errors.maxLength),
-    turnstileToken: z.string(),
+    turnstileToken: z.string({
+      required_error: t.contact.inputs.turnstileToken.errors.required,
+    }),
   });
 };
 

@@ -67,11 +67,10 @@ export default {
         position: "Software Developer",
         period: "Mar 2023 - Present",
         achievements: [
-          "Developed, tested, and deployed software solutions to optimize business processes and enhance operational efficiency.",
-          "Conducted code reviews and applied best practices to improve code quality and maintainability.",
-          "Utilized programming languages and frameworks such as Next.js and Nest.js to deliver high performing applications within set deadlines.",
-          "Troubleshot, debugged, and resolved software issues to ensure uninterrupted system functionality and user satisfaction.",
-          "Contributed to the continuous improvement of development workflows by integrating tools and methodologies such as Agile, CI/CD, Docker, and Kubernetes.",
+          "Developed a queuing system using AWS SQS/SNS to get customer order status, which improved order tracking efficiency and reduced customer response time.",
+          "I was committed to delivering high quality code by implementing unit and integration testing, which resulted in significant bug reduction and increased software stability.",
+          "I used programming languages and frameworks such as Next.js and Nest.js to deliver high performance applications within established deadlines.",
+          "I participated in deciding and planning the microfrontend architecture for the company's products, which allowed for greater scalability and flexibility in development.",
         ],
       },
       {
@@ -80,10 +79,9 @@ export default {
         position: "Software Developer",
         period: "Apr 2024 - Jun 2024",
         achievements: [
-          "Developed and maintained software applications to meet business requirements, ensuring functionality and performance standards were achieved.",
-          "Enforced coding best practices, resulting in improved code quality and software reliability.",
-          "Collaborated with cross-functional teams to gather requirements, design solutions, and deliver projects within deadlines.",
-          "Contributed to the optimization of application performance by analyzing system bottlenecks and implementing effective solutions.",
+          "I contributed to the optimization of application performance by analyzing system bottlenecks and implementing effective solutions.",
+          "I worked on implementing a microservices architecture using GRPC as effective communication",
+          "I developed an employee payroll generation system which was then submitted and reviewed by the SAT (Mexico)",
         ],
       },
       {
@@ -92,8 +90,10 @@ export default {
         position: "Full Stack Developer",
         period: "Jan 2023 - Apr 2024",
         achievements: [
-          "At Sirge, I worked as a full-stack developer, primarily dedicated to frontend development. My role involved designing and implementing a robust solution that enabled users to efficiently track their advertisements. I ensured a seamless user experience and optimized tracking mechanisms to enhance campaign performance.",
-          "Additionally, I was responsible for integrating social media platforms with Sirge’s system. Through API connections, I facilitated the extraction of users' advertisements from their accounts, allowing for streamlined data management and improved analytics. My contributions helped refine the platform’s capabilities, ensuring a smooth and effective ad-tracking experience.",
+          "Integration with social media accounts (Google, Facebook, Tikton) to get the user's ads on these platforms and manage them",
+          "Created responsive views that would adapt to all devices",
+          "Optimized and improved database queries to obtain reliable and trustworthy data",
+          "Ensured a smooth user experience and optimized tracking mechanisms to improve campaign performance.",
         ],
       },
       {
@@ -102,9 +102,10 @@ export default {
         position: "Full Stack Developer",
         period: "Mar 2021 - Apr 2024",
         achievements: [
-          "A dynamic software development agency, I worked on multiple projects simultaneously, specializing in the MERN stack. My role involved designing and implementing scalable web applications, ensuring high performance and maintainability.",
-          "Beyond MERN, I gained extensive experience with Next.js, NestJS, React Native, and AWS (Amplify, Elastic Beanstalk). I worked with PostgreSQL, MySQL, and MongoDB, optimizing database performance and ensuring seamless data management. Additionally, I participated in continuous integration workflows, enhancing deployment efficiency and system reliability.",
-          "My ability to adapt to diverse technologies and collaborate across teams allowed me to deliver robust and efficient solutions tailored to client needs.",
+          "I specialized in the MERN stack to develop complete back and front end solutions",
+          "I worked with multi-disciplinary teams from different parts of the world",
+          "I gained a lot of experience with innovative technologies such as Next.js, NestJS, React Native and AWS (Amplify, Elastic Beanstalk)",
+          "I participated in continuous integration workflows, improving implementation efficiency and system reliability",
         ],
       },
       {
@@ -113,7 +114,10 @@ export default {
         position: "Full Stack Developer",
         period: "Aug 2021 - Sep 2022",
         achievements: [
-          "Full-stack developer in charge of DevOps operations, maintenance and creation of new features for the growth of the platform.",
+          "Full-stack developer in charge of DevOps operations, maintenance and creation of new features to grow the platform.",
+          "Create an interactive chat for platform users to connect with each other.",
+          "Create the certificate system for the courses that were provided on the platform.",
+          "Performed the Heroku to AWS migration of the entire platform",
         ],
       },
     ],
@@ -129,7 +133,7 @@ export default {
         icon: HtmlLogo.src,
         color: "#E34F26",
         description:
-          "Markup language for structuring web content. Full mastery of semantic elements, accessibility, and best practices.",
+          "HiperText Markup language for structuring web content. Full mastery of semantic elements, accessibility, and best practices.",
         experience: "5 years",
         category: "Frontend",
       },
@@ -220,7 +224,7 @@ export default {
         color: "#000000",
         description:
           "React framework for optimized web applications. Support for SSR, SSG, API routes, and performance optimization.",
-        experience: "3 years",
+        experience: "4 years",
         category: "Frontend",
       },
       {
@@ -310,7 +314,7 @@ export default {
         color: "#FF9900",
         description:
           "Cloud services platform. Experience with EC2, S3, Lambda, and database services.",
-        experience: "1 year",
+        experience: "2 year",
         category: "Cloud Computing",
       },
       {
@@ -370,8 +374,6 @@ export default {
         technologies: [
           "Nest.js",
           "TypeScript",
-          "PostgreSQL",
-          "MongoDB",
           "Docker",
           "Kubernetes",
           "stripe",
@@ -505,6 +507,32 @@ export default {
       "Start your project",
       "Say hello",
     ],
+    contactsMethods: [
+      {
+        id: "email",
+        title: "Email",
+        description: personalInfo.email,
+        backgroundGradientIcon: "from-blue-500 to-blue-600",
+      },
+      {
+        id: "phone",
+        title: "Phone",
+        description: personalInfo.phoneNumber,
+        backgroundGradientIcon: "from-yellow-500 to-yellow-600",
+      },
+      {
+        id: "location",
+        title: "Location",
+        description: personalInfo.location,
+        backgroundGradientIcon: "from-sky-500 to-sky-600",
+      },
+      {
+        id: "hours",
+        title: "Hours",
+        description: "Mon - Fri: 9 AM - 6 PM",
+        backgroundGradientIcon: "from-amber-500 to-amber-600",
+      },
+    ],
     inputs: {
       name: {
         label: "Name",
@@ -529,6 +557,11 @@ export default {
           required: "Message is required",
           minLength: "Message must be at least 10 characters",
           maxLength: "Message cannot exceed 500 characters",
+        },
+      },
+      turnstileToken: {
+        errors: {
+          required: "Por favor complete la verificación",
         },
       },
     },

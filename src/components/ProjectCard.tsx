@@ -150,8 +150,8 @@ const ProjectCard: FC<Props> = ({ index, project, isCenter = false }) => {
               <div
                 className={`mb-6 [display:-webkit-box] max-h-36 overflow-hidden text-ellipsis text-slate-600 [-webkit-box-orient:vertical] dark:text-white ${
                   isCenter
-                    ? "text-sm sm:text-base md:[-webkit-line-clamp:4] xl:[-webkit-line-clamp:5]"
-                    : "text-xs [-webkit-line-clamp:4] sm:text-sm"
+                    ? "line-clamp-4 text-sm sm:text-base xl:line-clamp-5"
+                    : "line-clamp-4 text-xs sm:text-sm"
                 } `}
               >
                 {project.description}

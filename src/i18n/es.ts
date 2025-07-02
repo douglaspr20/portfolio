@@ -22,7 +22,7 @@ import { personalInfo } from "@/lib/data";
 
 export default {
   seo: {
-    title: "Douglas Pérez - Portfolio",
+    title: "Douglas Pérez - Portafolio",
     description: "Compromiso, eficiencia y buen código",
   },
 
@@ -68,11 +68,10 @@ export default {
         position: "Desarrollador de Software",
         period: "Mar 2023 - Presente",
         achievements: [
-          "Desarrollé, probé e implementé soluciones de software para optimizar procesos comerciales y mejorar la eficiencia operativa.",
-          "Realicé revisiones de código y apliqué las mejores prácticas para mejorar la calidad y mantenibilidad del código.",
+          "Desarrollé un sistema de colas usando SQS/SNS de AWS para conseguir el estado de las ordenes de los clientes, lo que mejoró la eficiencia del seguimiento de pedidos y redujo el tiempo de respuesta al cliente.",
+          "Me comprometí a entregar código de alta calidad mediante la implementación de pruebas unitarias y de integración, lo que resultó en una reducción significativa de errores y una mayor estabilidad del software.",
           "Utilicé lenguajes de programación y marcos como Next.js y Nest.js para entregar aplicaciones de alto rendimiento dentro de los plazos establecidos.",
-          "Solucioné problemas, depuré y resolví problemas de software para garantizar la funcionalidad ininterrumpida del sistema y la satisfacción del usuario.",
-          "Contribuí a la mejora continua de los flujos de trabajo de desarrollo al integrar herramientas y metodologías como Agile, CI/CD, Docker y Kubernetes.",
+          "Participé en la decición y planificación de la arquitectura de microfrontend para los productos de la empresa, lo que permitió una mayor escalabilidad y flexibilidad en el desarrollo.",
         ],
       },
       {
@@ -81,10 +80,9 @@ export default {
         position: "Desarrollador de Software",
         period: "Abr 2024 - Jun 2024",
         achievements: [
-          "Desarrollé y mantuve aplicaciones de software para cumplir con los requisitos comerciales, asegurando que se lograran los estándares de funcionalidad y rendimiento.",
-          "Hice cumplir las mejores prácticas de codificación, lo que resultó en una mejor calidad del código y confiabilidad del software.",
-          "Colaboré con equipos multifuncionales para recopilar requisitos, diseñar soluciones y entregar proyectos dentro de los plazos establecidos.",
           "Contribuí a la optimización del rendimiento de la aplicación al analizar los cuellos de botella del sistema e implementar soluciones efectivas.",
+          "Trabaje en implementar una arquitectura de microservicios usando GRPC como comunicación efectiva",
+          "Desarrolle un sistema de generación de nomina de los empleados el cual después era enviado y revisado por el SAT (Mexico)",
         ],
       },
       {
@@ -93,8 +91,10 @@ export default {
         position: "Desarrollador Full Stack",
         period: "Ene 2023 - Abr 2024",
         achievements: [
-          "En Sirge, trabajé como desarrollador full-stack, dedicado principalmente al desarrollo frontend. Mi función consistió en diseñar e implementar una solución robusta que permitiera a los usuarios rastrear sus anuncios de manera eficiente. Garantizé una experiencia de usuario fluida y optimicé los mecanismos de seguimiento para mejorar el rendimiento de las campañas.",
-          "Además, fui responsable de integrar plataformas de redes sociales con el sistema de Sirge. A través de conexiones API, facilité la extracción de anuncios de los usuarios de sus cuentas, lo que permitió una gestión de datos simplificada y una mejor analítica. Mis contribuciones ayudaron a refinar las capacidades de la plataforma, asegurando una experiencia de seguimiento de anuncios fluida y efectiva.",
+          "Inbtegracioón con cuentas de redes sociales (Google, Facebook, Tikton) para obtener los anuncios del usuario en estas plataforma y administrarlos",
+          "Creación de vistas responsivas que se adaptaran a todos los dispositivos",
+          "Optimicé y mejore los queries de la base de datos para obtener data fidedigna y confiable",
+          "Garantizé una experiencia de usuario fluida y optimicé los mecanismos de seguimiento para mejorar el rendimiento de las campañas.",
         ],
       },
       {
@@ -103,9 +103,10 @@ export default {
         position: "Desarrollador Full Stack",
         period: "Mar 2021 - Abr 2024",
         achievements: [
-          "En una agencia de desarrollo de software dinámica, trabajé en múltiples proyectos simultáneamente, especializándome en el stack MERN. Mi función consistió en diseñar e implementar aplicaciones web escalables, asegurando un alto rendimiento y mantenibilidad.",
-          "Más allá de MERN, adquirí una amplia experiencia con Next.js, NestJS, React Native y AWS (Amplify, Elastic Beanstalk). Trabajé con PostgreSQL, MySQL y MongoDB, optimizando el rendimiento de la base de datos y asegurando una gestión de datos fluida. Además, participé en flujos de trabajo de integración continua, mejorando la eficiencia de implementación y la confiabilidad del sistema.",
-          "Mi capacidad para adaptarme a diversas tecnologías y colaborar entre equipos me permitió ofrecer soluciones robustas y eficientes adaptadas a las necesidades del cliente.",
+          "Me especialicé en el stack MERN para desarrollar soluciones completas tando de back como de front",
+          "Desempeñe mis labores con equipos multidisiplinarios de diferentes partes del mundo",
+          "Adquirí umucha experiencia con tecnologias imnovadoras como Next.js, NestJS, React Native y AWS (Amplify, Elastic Beanstalk).",
+          "Participé en flujos de trabajo de integración continua, mejorando la eficiencia de implementación y la confiabilidad del sistema.",
         ],
       },
       {
@@ -115,6 +116,9 @@ export default {
         period: "Ago 2021 - Sep 2022",
         achievements: [
           "Desarrollador full-stack a cargo de las operaciones de DevOps, mantenimiento y creación de nuevas funciones para el crecimiento de la plataforma.",
+          "Cree un chat interactivo para que los usuarios de la plataforma pudieran conectar entre ellos",
+          "Cree el sistema de certificado para los cursos que se brindaban en la plataforma",
+          "Realicé la migración de Heroku a AWS de toda la plataforma",
         ],
       },
     ],
@@ -130,7 +134,7 @@ export default {
         icon: HtmlLogo.src,
         color: "#E34F26",
         description:
-          "Lenguaje de marcado para estructurar contenido web. Dominio total de elementos semánticos, accesibilidad y mejores prácticas.",
+          "Lenguaje de marcado de hipertexto para estructurar contenido web. Dominio total de elementos semánticos, accesibilidad y mejores prácticas.",
         experience: "5 años",
         category: "Frontend",
       },
@@ -221,7 +225,7 @@ export default {
         color: "#000000",
         description:
           "Framework de React para aplicaciones web optimizadas. Soporte para SSR, SSG, rutas API y optimización del rendimiento.",
-        experience: "3 años",
+        experience: "4 años",
         category: "Frontend",
       },
       {
@@ -311,7 +315,7 @@ export default {
         color: "#FF9900",
         description:
           "Plataforma de servicios en la nube. Experiencia con EC2, S3, Lambda y servicios de bases de datos.",
-        experience: "1 año",
+        experience: "2 años",
         category: "Cloud Computing",
       },
       {
@@ -371,8 +375,6 @@ export default {
         technologies: [
           "Nest.js",
           "TypeScript",
-          "PostgreSQL",
-          "MongoDB",
           "Docker",
           "Kubernetes",
           "stripe",
@@ -506,6 +508,32 @@ export default {
       "Inicia tu proyecto",
       "Salúdame",
     ],
+    contactsMethods: [
+      {
+        id: "email",
+        title: "Email",
+        description: personalInfo.email,
+        backgroundGradientIcon: "from-blue-500 to-blue-600",
+      },
+      {
+        id: "phone",
+        title: "Teléfono",
+        description: personalInfo.phoneNumber,
+        backgroundGradientIcon: "from-yellow-500 to-yellow-600",
+      },
+      {
+        id: "location",
+        title: "Ubicación",
+        description: personalInfo.location,
+        backgroundGradientIcon: "from-sky-500 to-sky-600",
+      },
+      {
+        id: "hours",
+        title: "Horas",
+        description: "Lun - Vie: 9 AM - 6 PM",
+        backgroundGradientIcon: "from-amber-500 to-amber-600",
+      },
+    ],
     inputs: {
       name: {
         label: "Nombre",
@@ -530,6 +558,11 @@ export default {
           required: "El mensaje es obligatorio",
           minLength: "El mensaje debe tener al menos 10 caracteres",
           maxLength: "El mensaje no puede exceder los 500 caracteres",
+        },
+      },
+      turnstileToken: {
+        errors: {
+          required: "Por favor complete la verificación",
         },
       },
     },
