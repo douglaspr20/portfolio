@@ -80,8 +80,8 @@ export default {
         position: "Desarrollador de Software",
         period: "Abr 2024 - Jun 2024",
         achievements: [
-          "Contribuí a la optimización del rendimiento de la aplicación al analizar los cuellos de botella del sistema e implementar soluciones efectivas.",
-          "Trabaje en implementar una arquitectura de microservicios usando GRPC como comunicación efectiva",
+          "Contribuí de manera significativa a mejorar el rendimiento de la aplicación, eliminando cuellos de botella, optimizando funciones y preveniendo vulnerabilidades",
+          "Trabaje en implementar una arquitectura de microservicios usando GRPC para una comunicación efectiva entre cada una de las partes de la infraestructura",
           "Desarrolle un sistema de generación de nomina de los empleados el cual después era enviado y revisado por el SAT (Mexico)",
         ],
       },
@@ -91,9 +91,9 @@ export default {
         position: "Desarrollador Full Stack",
         period: "Ene 2023 - Abr 2024",
         achievements: [
-          "Inbtegracioón con cuentas de redes sociales (Google, Facebook, Tikton) para obtener los anuncios del usuario en estas plataforma y administrarlos",
-          "Creación de vistas responsivas que se adaptaran a todos los dispositivos",
-          "Optimicé y mejore los queries de la base de datos para obtener data fidedigna y confiable",
+          "Integración con cuentas de redes sociales (Google, Facebook, Tiktok) para obtener los anuncios del usuario en dichas plataforma y administrarlos",
+          "Me encargé de crear vistas bajo el modelo mobile first para asegurar que lucieran comodas y llamativas a la vista del usuario sin importar el dispositivo desde el que acceda al sitio",
+          "Optimicé y mejoré los queries de la base de datos para obtener data fidedigna y confiable",
           "Garantizé una experiencia de usuario fluida y optimicé los mecanismos de seguimiento para mejorar el rendimiento de las campañas.",
         ],
       },

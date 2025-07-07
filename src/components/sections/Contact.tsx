@@ -35,7 +35,7 @@ const Contact: FC<Props> = ({ currentLang }) => {
 
   return (
     <SectionContainer id="contact">
-      <div className="mb-16">
+      <div className="mb-12">
         <h2 className="text-2xl font-bold sm:text-4xl">
           <TypingAnimation
             texts={titles}
@@ -44,8 +44,10 @@ const Contact: FC<Props> = ({ currentLang }) => {
         </h2>
       </div>
 
-      <div className="grid gap-12 lg:grid-cols-2">
-        <ContactForm currentLang={currentLang} />
+      <div className="flex flex-col gap-8 lg:flex-row">
+        <div className="w-full lg:max-w-xl">
+          <ContactForm currentLang={currentLang} />
+        </div>
 
         <div className="space-y-8">
           <h3 className="mb-4 text-2xl font-bold dark:text-white">
@@ -53,7 +55,7 @@ const Contact: FC<Props> = ({ currentLang }) => {
           </h3>
           <p className="mb-8 text-gray-700 dark:text-gray-300">{description}</p>
 
-          <div className="space-y-6">
+          <div className="space-y-6 sm:pr-0">
             {contactsMethodsWithIcons.map((method) => (
               <Card
                 key={method.title}
@@ -64,9 +66,9 @@ const Contact: FC<Props> = ({ currentLang }) => {
                 >
                   {method.icon}
                 </div>
-                <div className="text-center md:text-start">
+                <div className="w-full text-center md:text-start">
                   <h4 className="font-semibold">{method.title}</h4>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="text-wrap wrap-break-word text-gray-700 dark:text-gray-300">
                     {method.description}
                   </p>
                 </div>

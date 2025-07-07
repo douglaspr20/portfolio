@@ -30,6 +30,7 @@ const Footer: FC<Props> = ({ currentLang }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
+            className="text-center lg:text-left"
           >
             <h3 className="mb-2 cursor-pointer text-2xl font-bold text-white transition-colors hover:text-blue-400">
               <TypingAnimation

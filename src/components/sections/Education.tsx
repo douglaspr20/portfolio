@@ -1,4 +1,4 @@
-import React, { useState, type FC } from "react";
+import { useState, type FC } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
 import { Award, Calendar, GraduationCap, MapPin } from "lucide-react";
@@ -33,7 +33,7 @@ const Education: FC<Props> = ({ currentLang }) => {
         transition={{ duration: 0.6 }}
         className="mb-12"
       >
-        <h2 className="mb-6 text-2xl font-bold md:text-4xl">
+        <h2 className="text-2xl font-bold md:text-4xl">
           <TypingAnimation
             texts={titles}
             className="bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent"

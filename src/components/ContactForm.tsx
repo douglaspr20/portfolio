@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
-import { useState, type FC } from "react";
+import { useRef, useState, type FC } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getContactSchema, type ContactFormData } from "@/lib";
@@ -17,6 +17,7 @@ interface Props {
 }
 
 const ContactForm: FC<Props> = ({ currentLang }) => {
+  const cardRef = useRef<HTMLDivElement | null>(null);
   const [toast, setToast] = useState<{
     message: string;
     type: "success" | "error";
@@ -74,8 +75,11 @@ const ContactForm: FC<Props> = ({ currentLang }) => {
 
   return (
     <>
-      <Card className="shadow-lg backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/50">
-        <CardContent className="p-8">
+      <Card
+        ref={cardRef}
+        className="shadow-lg backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/50"
+      >
+        <CardContent className="p-4 md:p-8">
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div className="space-y-2">
               <label htmlFor="name">{inputs.name.label}</label>
@@ -123,8 +127,12 @@ const ContactForm: FC<Props> = ({ currentLang }) => {
               )}
             </div>
 
-            <div className="space-y-2">
-              <TurnstileWidget onSuccess={handleSuccess} />
+            <div className="mx-auto space-y-2">
+              <TurnstileWidget
+                onSuccess={handleSuccess}
+                currentLang={currentLang}
+                currentContainerWidth={cardRef?.current?.clientWidth}
+              />
               {errors.turnstileToken && (
                 <p className="mt-1 text-sm text-red-500">
                   {errors.turnstileToken.message ||
